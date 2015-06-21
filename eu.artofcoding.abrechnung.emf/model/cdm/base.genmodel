@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/eu.artofcoding.abrechnung.emf/src" modelPluginID="eu.artofcoding.abrechnung.emf"
+    modelName="Base" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.xsd.ecore.importer" complianceLevel="8.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>cdm-base.xsd</foreignModel>
+  <genPackages prefix="Base" basePackage="eu.coding.of.art.cdm.v1" resource="XML"
+      disposableProviderFactory="true" ecorePackage="base.ecore#/">
+    <genDataTypes ecoreDataType="base.ecore#//AddressLine"/>
+    <genDataTypes ecoreDataType="base.ecore#//AddressZipcode"/>
+    <genDataTypes ecoreDataType="base.ecore#//City"/>
+    <genDataTypes ecoreDataType="base.ecore#//DateOfBirth"/>
+    <genDataTypes ecoreDataType="base.ecore#//Name"/>
+    <genClasses ecoreClass="base.ecore#//Address">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute base.ecore#//Address/address1"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute base.ecore#//Address/address2"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute base.ecore#//Address/zipcode"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute base.ecore#//Address/city"/>
+    </genClasses>
+    <genClasses ecoreClass="base.ecore#//Person">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute base.ecore#//Person/firstname"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute base.ecore#//Person/lastname"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute base.ecore#//Person/dateOfBirth"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference base.ecore#//Person/address"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

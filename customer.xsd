@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:tns="http://www.art-of-coding.eu/cdm/v1/customer"
+           xmlns:base="http://www.art-of-coding.eu/cdm/v1/base"
+           xmlns:customer="http://www.art-of-coding.eu/cdm/v1/customer"
+           elementFormDefault="qualified"
+           targetNamespace="http://www.art-of-coding.eu/cdm/v1/customer">
+  <xs:import namespace="http://www.art-of-coding.eu/cdm/v1/base" schemaLocation="cdm-base.xsd"></xs:import>
+  <xs:element name="customer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="company1" type="base:name"/>
+        <xs:element name="company2" type="base:name"/>
+        <xs:element name="billingAddress" type="base:address"/>
+      </xs:sequence>
+      <xs:attribute name="id" use="required" type="xs:int"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="interval">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="interval"/>
+        <xs:element ref="intervalDescription"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="intervalDescription" type="xs:NCName"/>
+</xs:schema>

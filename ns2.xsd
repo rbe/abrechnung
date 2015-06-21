@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="eu.artofcoding.abrechnung.model.jaxb" xmlns:ns2="eu.artofcoding.abrechnung.model.jaxb">
+  <xs:import schemaLocation="customer.xsd"/>
+  <xs:element name="customers">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="customer"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

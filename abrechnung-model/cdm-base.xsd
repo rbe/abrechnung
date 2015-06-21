@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:tns="http://www.art-of-coding.eu/cdm/v1/base"
+           xmlns:customer="http://www.art-of-coding.eu/cdm/v1/base"
+           elementFormDefault="qualified"
+           targetNamespace="http://www.art-of-coding.eu/cdm/v1/base">
+    <xs:simpleType name="name">
+        <xs:restriction base="xs:NCName"></xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="date-of-birth">
+        <xs:restriction base="xs:date"></xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="address-line">
+        <xs:restriction base="xs:string"></xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="address-zipcode">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="5"/>
+            <xs:maxLength value="5"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="city">
+        <xs:restriction base="xs:string"></xs:restriction>
+    </xs:simpleType>
+</xs:schema>

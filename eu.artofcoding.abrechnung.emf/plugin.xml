@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated abrechnung -->
+      <package
+            uri="http://www.art-of-coding.eu/cdm/v1/base"
+            class="eu.coding.of.art.cdm.v1.base.BasePackage"
+            genModel="model/abrechnung.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <!-- @generated abrechnung -->
+      <parser
+            type="base"
+            class="eu.coding.of.art.cdm.v1.base.util.BaseResourceFactoryImpl"/>
+   </extension>
+
+</plugin>

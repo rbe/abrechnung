@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="eu.artofcoding.abrechnung.model.jaxb" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:import schemaLocation="schema2.xsd"/>
+
+  <xs:element name="abrechnung" type="model"/>
+
+  <xs:element name="customers" type="customerModel"/>
+
+  <xs:element name="invoices" type="invoiceModel"/>
+
+  <xs:element name="products" type="productModel"/>
+
+
+
+
+</xs:schema>
+

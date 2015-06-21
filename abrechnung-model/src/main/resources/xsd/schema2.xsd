@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:ns1="eu.artofcoding.abrechnung.model.jaxb" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:import namespace="eu.artofcoding.abrechnung.model.jaxb" schemaLocation="schema1.xsd"/>
+
+  <xs:complexType name="invoiceModel">
+    <xs:sequence>
+      <xs:element name="invoice" type="invoice" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="invoice">
+    <xs:sequence>
+      <xs:element name="customer" type="customer" minOccurs="0"/>
+      <xs:element name="products" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="product" type="product" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="id" type="xs:string"/>
+  </xs:complexType>
+
+  <xs:complexType name="customer">
+    <xs:sequence>
+      <xs:element name="firstname" type="xs:string" minOccurs="0"/>
+      <xs:element name="lastname" type="xs:string" minOccurs="0"/>
+      <xs:element name="date-of-birth" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="address1" type="xs:string" minOccurs="0"/>
+      <xs:element name="address2" type="xs:string" minOccurs="0"/>
+      <xs:element name="zipcode" type="xs:string" minOccurs="0"/>
+      <xs:element name="city" type="xs:string" minOccurs="0"/>
+      <xs:element name="country" type="xs:string" minOccurs="0"/>
+      <xs:element name="products" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="product" type="periodic-product" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="id" type="xs:string"/>
+  </xs:complexType>
+
+  <xs:complexType name="periodic-product">
+    <xs:complexContent>
+      <xs:extension base="product">
+        <xs:sequence>
+          <xs:element name="interval" type="interval" minOccurs="0"/>
+          <xs:element name="last-charged-date" type="xs:dateTime" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="product">
+    <xs:sequence>
+      <xs:element name="name" type="xs:string" minOccurs="0"/>
+      <xs:element name="description" type="xs:string" minOccurs="0"/>
+      <xs:element name="taxRate" type="xs:double" minOccurs="0"/>
+      <xs:element name="price" type="xs:double" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="id" type="xs:string"/>
+  </xs:complexType>
+
+  <xs:complexType name="interval">
+    <xs:sequence>
+      <xs:element name="interval" type="xs:int"/>
+      <xs:element name="intervalDescription" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="model">
+    <xs:sequence>
+      <xs:element name="customers" type="customerModel" minOccurs="0"/>
+      <xs:element name="products" type="productModel" minOccurs="0"/>
+      <xs:element name="invoices" type="invoiceModel" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="customerModel">
+    <xs:sequence>
+      <xs:element name="customer" type="customer" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="productModel">
+    <xs:sequence>
+      <xs:element name="product" type="product" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+
